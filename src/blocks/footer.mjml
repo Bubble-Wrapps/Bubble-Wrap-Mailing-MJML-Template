@@ -23,7 +23,17 @@
       <mj-column width="100%">
         <mj-text> Pozdrawiam, </mj-text>
         <mj-text> Marcin Dwornikowski </mj-text>
-        <mj-text> Bubble Wrap </mj-text>
+        <mj-text
+          ><a
+            href="https://bubblewrap.dev"
+            style="
+              color: rgb(218, 72, 223);
+              font-weight: 600;
+              text-decoration: none;
+            "
+            >Bubble Wrap</a
+          ></mj-text
+        >
       </mj-column>
     </mj-section>
   </mj-body>
