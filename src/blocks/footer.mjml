@@ -11,9 +11,15 @@
       />
       <mj-all padding="0" margin="0" font-family="Helvetica" />
     </mj-attributes>
+    <mj-style inline="inline">
+      .use-full-width {
+        width: 100%;
+        max-width: 100% !important;
+      }
+    </mj-style>
   </mj-head>
   <mj-body>
-    <mj-section>
+    <mj-section css-class="use-full-width">
       <mj-column width="100%">
         <mj-text> Pozdrawiam, </mj-text>
         <mj-text> Marcin Dwornikowski </mj-text>
