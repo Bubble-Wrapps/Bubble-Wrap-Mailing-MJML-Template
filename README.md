@@ -4,12 +4,17 @@
 
 - [asdf](https://asdf-vm.com) - asdf is a tool version manager that allows managing multiple runtime versions for different tools.
 
+<br>
+
 ```console
 brew install asdf
 ```
 
-Or:
-Follow the installation instructions provided in the asdf documentation to install asdf on your system.
+>Or:
+>
+>Follow the installation instructions provided in the asdf documentation to install asdf on your system.
+
+<br>
 
 ## Configuration
 
@@ -82,6 +87,8 @@ For using Cursor:
 ```console
 cursor .
 ```
+
+<br>
 
 Or (for using Visual Studio Code):
 
