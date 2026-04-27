@@ -1,0 +1,12 @@
+This project uses MJML (Mailjet Markup Language) to build responsive HTML emails.
+
+Key rules:
+
+- All email content must be wrapped in <mjml> > <mj-body> > <mj-section> > <mj-column>
+- Use mj-text, mj-button, mj-image, mj-divider, mj-social for content
+- Use mj-head with mj-attributes for global styles
+- Never use raw <div> or <table> for layout — use MJML components
+- Source files live in src/templates/ (.mjml extension)
+- Reusable MJML fragments live in src/blocks/ and are included with <mj-include>
+- Compiled HTML output goes to dist/
+- Run `bun run build` to compile
