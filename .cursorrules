@@ -6,7 +6,15 @@ Key rules:
 - Use mj-text, mj-button, mj-image, mj-divider, mj-social for content
 - Use mj-head with mj-attributes for global styles
 - Never use raw <div> or <table> for layout — use MJML components
-- Source files live in src/templates/ (.mjml extension)
-- Reusable MJML fragments live in src/blocks/ and are included with <mj-include>
-- Compiled HTML output goes to dist/
-- Run `bun run build` to compile
+- Source files live in src/templates/ (.mjml extension); compiled to dist/templates/
+- Reusable MJML fragments live in src/blocks/ and are included with <mj-include>; compiled to dist/blocks/ without allowIncludes
+- Compiled HTML output goes to dist/ (not committed)
+- Run `bun run build` to compile templates and blocks
+- Run `bun run build-templates` to compile only templates
+- Run `bun run build-blocks` to compile only blocks
+- Run `bun run build-watch` to watch templates and blocks
+- Run `bun run build-templates-watch` to watch only templates
+- Run `bun run build-blocks-watch` to watch only blocks
+- Run `bun run build-minify` to compile templates and blocks with minified output
+- Run `bun run build-templates-minify` to compile only templates with minified output
+- Run `bun run build-blocks-minify` to compile only blocks with minified output
