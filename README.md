@@ -7,8 +7,9 @@
 ```console
 brew install asdf
 ```
+
 Or:
-  Follow the installation instructions provided in the asdf documentation to install asdf on your system.
+Follow the installation instructions provided in the asdf documentation to install asdf on your system.
 
 ## Configuration
 
@@ -56,7 +57,7 @@ asdf install
 
 <br>
 
-### bun
+### Bun
 
 #### 1. Install dependencies
 
@@ -77,10 +78,13 @@ To open the folder that contains the MJML project, run the following command in 
 <br>
 
 For using Cursor:
+
 ```console
 cursor .
 ```
+
 Or (for using Visual Studio Code):
+
 ```console
 code .
 ```
