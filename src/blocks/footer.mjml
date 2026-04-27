@@ -2,10 +2,12 @@
   <mj-head>
     <mj-attributes>
       <mj-text
-        font-size="13px"
+        font-size="12px"
         font-weight="400"
         font-style="normal"
         line-height="1.2"
+        color="inherit"
+        align="left"
       />
       <mj-all padding="0" margin="0" font-family="Helvetica" />
     </mj-attributes>
