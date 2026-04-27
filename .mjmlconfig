@@ -1,0 +1,7 @@
+{
+  "packages": [],
+  "options": {
+    "beautify": true,
+    "validationLevel": "soft"
+  }
+}

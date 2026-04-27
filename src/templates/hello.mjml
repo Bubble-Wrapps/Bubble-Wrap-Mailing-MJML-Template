@@ -1,0 +1,21 @@
+<mjml>
+  <mj-head>
+    <mj-title>Hello World</mj-title>
+    <mj-preview>My first MJML email</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Helvetica, Arial, sans-serif" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-section background-color="#f4f4f4">
+      <mj-column>
+        <mj-text align="center" font-size="24px" color="#333333">
+          Hello, MJML!
+        </mj-text>
+        <mj-button background-color="#F45E43" href="https://mjml.io">
+          Learn More
+        </mj-button>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

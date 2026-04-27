@@ -1,0 +1,20 @@
+{
+  "name": "mjml-bubble-wrap",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "mjml src/templates/*.mjml -o dist/ --config.allowIncludes true",
+    "build:watch": "mjml -w src/templates/*.mjml -o dist/ --config.allowIncludes true",
+    "build:minify": "mjml src/templates/*.mjml -o dist/ --config.allowIncludes true --config.minify true"
+  },
+  "devDependencies": {
+    "mjml-cli": "^5.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "mjml": "^5.1.0"
+  }
+}
