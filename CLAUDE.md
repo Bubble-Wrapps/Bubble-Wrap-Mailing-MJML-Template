@@ -28,8 +28,9 @@ bun run build-blocks-minify      # Compile blocks with minified output
 
 ## MJML Rules
 
-- All layout must use MJML components — never raw `<div>` or `<table>`
-- Required nesting: `<mjml>` → `<mj-body>` → `<mj-section>` → `<mj-column>` → content
-- Content components: `mj-text`, `mj-button`, `mj-image`, `mj-divider`, `mj-social`
-- Global styles and font declarations go in `<mj-head>` using `<mj-attributes>`
-- Reusable fragments belong in `src/blocks/` and are included with `<mj-include>`
+- Always use https://documentation.mjml.io/#mjml-guide for guidelines on how to do stuff.
+- All layouts should prioritise using MJML components over raw HTML. If something can't be done with MJML components or would be messy/hard to work with - use <mj-raw> component that allows to put plain HTML in it. mj-raw is an "ending tag", which means that it can contain HTML code but it cannot contain other MJML components.
+- Required nesting: `<mjml>` → `<mj-body>` → `<mj-section>` → `<mj-column>` → content.
+- Compiled HTML output goes to dist/ (not committed)
+- Source files live in src/templates/ and src/blocks (.mjml extension); compiled to dist/templates/ and dist/blocks.
+- The files in src/blocks/ are reusable MJML fragments and are included with <mj-include>; compiled to dist/blocks/ without allowIncludes.

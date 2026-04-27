@@ -2,13 +2,12 @@ This project uses MJML (Mailjet Markup Language) to build responsive HTML emails
 
 Key rules:
 
-- All email content must be wrapped in <mjml> > <mj-body> > <mj-section> > <mj-column>
-- Use mj-text, mj-button, mj-image, mj-divider, mj-social for content
-- Use mj-head with mj-attributes for global styles
-- Never use raw <div> or <table> for layout — use MJML components
-- Source files live in src/templates/ (.mjml extension); compiled to dist/templates/
-- Reusable MJML fragments live in src/blocks/ and are included with <mj-include>; compiled to dist/blocks/ without allowIncludes
+- Always use https://documentation.mjml.io/#mjml-guide for guidelines on how to do stuff.
+- All layouts should prioritise using MJML components over raw HTML. If something can't be done with MJML components or would be messy/hard to work with - use <mj-raw> component that allows to put plain HTML in it. mj-raw is an "ending tag", which means that it can contain HTML code but it cannot contain other MJML components.
+- Required nesting: `<mjml>` → `<mj-body>` → `<mj-section>` → `<mj-column>` → content.
 - Compiled HTML output goes to dist/ (not committed)
+- Source files live in src/templates/ and src/blocks (.mjml extension); compiled to dist/templates/ and dist/blocks.
+- The files in src/blocks/ are reusable MJML fragments and are included with <mj-include>; compiled to dist/blocks/ without allowIncludes.
 - Run `bun run build` to compile templates and blocks
 - Run `bun run build-templates` to compile only templates
 - Run `bun run build-blocks` to compile only blocks
