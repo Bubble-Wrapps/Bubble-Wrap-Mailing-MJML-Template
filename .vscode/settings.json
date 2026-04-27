@@ -5,6 +5,9 @@
 
   /* Files */
   "files.exclude": {},
+  "files.associations": {
+    "*.mjml": "mjml"
+  },
 
   /* Search */
   "search.exclude": {
