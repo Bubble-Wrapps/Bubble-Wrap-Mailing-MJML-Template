@@ -139,7 +139,7 @@ bun run build
 
 <br>
 
-Then open src/templates/hello.mjml, hit Cmd/Ctrl + Shift + P and run 'MJML: Open Preview to the Side', which should open an MJML Preview tab (though not necessarily to the Side - you can drag it there though though).
+Then open `src/templates/hello.mjml`, hit Cmd/Ctrl + Shift + P and run **MJML: Open Preview to the Side**, which should open an MJML Preview tab (though not necessarily to the Side - you can drag it there though though).
 
 <br>
 
@@ -156,6 +156,10 @@ Work files live under `src/`. Compiled HTML goes to `dist/` (`dist/` is generate
 | `src/components/` | Full MJML documents that can be used independently (each has an `<mjml>` root), but usually are meant to be the large building material for your templates. Built twice: HTML snippets for use in other `.mjml` files under `dist/components/` (for including using `<mj-include type="html" path="...">`) and full unstripped HTML documents under `dist/components-raw/` (for independent use or for debugging build issues). |
 | `src/templates/` | Full email templates. Built to `dist/templates/` - these are the usual “ship this HTML” outputs. |
 
+> Note:
+>
+> If you are wondering why components are build twice and the stripped version is used for HTML include in the templates as a prefference - see `src/templates/hello.mjml` and try both ways of include yourself (the regular `.mjml` include and the `.html` include) - I've added comments and a commented out `.mjml` include alternative for you to try.
+
 After a build, `dist/` contains:
 
 - `dist/components/` - stripped HTML snippets for use in other `.mjml` files. Those `.html` files are stripped from the HTML shell so that they can be reused in the target HTML documents (for example in a src/templates/ .mjml file). Those snippets preserve all your custom styling and MJML's [head components](https://documentation.mjml.io/#standard-head-components), except for mj-breakpoint, mj-preview and mj-title - but those are ok to be stripped away because they are important for a full HTML file and not a HTML snippet.
@@ -166,18 +170,18 @@ After a build, `dist/` contains:
 
 ## Preview
 
-- **In the IDE:** open an `.mjml` file, Command Palette (Cmd/Ctrl + Shift + P) → **MJML: Open Preview to the Side** (you can drag the preview tab where you like).
+- **In the IDE:** open an `.mjml` file, Command Palette (Cmd/Ctrl + Shift + P) - **MJML: Open Preview to the Side** (you can drag the preview tab where you like).
 - **In the browser:** open the generated `.html` files under `dist/` directly (for example `dist/templates/hello.html`).
 
 > Note:
 >
 > If you rely on opening `.html` in the browser, **watch mode** (see [Build commands](#build-commands)) keeps `dist/` in sync while you edit, so you only need to refresh the browser.
 
-## Documentation
-
 <br>
 
-Official [MJML documentation](https://documentation.mjml.io/#mjml-guide).
+## Documentation
+
+### Official [MJML documentation](https://documentation.mjml.io/#mjml-guide).
 
 <br>
 
@@ -185,17 +189,17 @@ Official [MJML documentation](https://documentation.mjml.io/#mjml-guide).
 
 Run these from the project root with Bun.
 
-| Command | What it does | When it’s useful |
+| Command | What it does | Note |
 |---------|----------------|------------------|
-| `bun run build` | Builds components (both outputs), then templates. | Default full compile before send or CI. |
-| `bun run build-templates` | Compiles `src/templates/*.mjml` → `dist/templates/` only. | You only changed templates and `dist/components/` is already up to date. |
-| `bun run build-components` | Compiles components → `dist/components/` (snippet post-processing). | After changing a component that templates include as HTML. |
-| `bun run build-components-raw` | Compiles components → `dist/components-raw/` (full HTML, no stripping). | Standalone previews or copying a full sub-document. |
-| `bun run build-watch` | Runs component, component-raw, and template watchers together. | Active editing; templates rebuild when `dist/components/` updates. |
-| `bun run build-templates-watch` | Watches templates, blocks, styles, and `dist/components/`. | Template-only work while components are already built elsewhere. |
-| `bun run build-components-watch` | Watches components, blocks, styles → `dist/components/`. | Snippet output while you edit shared pieces. |
-| `bun run build-components-raw-watch` | Same sources → `dist/components-raw/`. | Raw HTML while you edit components. |
-| `bun run build-minify` | Same as `build`, with minified HTML. | Smaller files for production. |
-| `bun run build-templates-minify` | Minified templates only. | |
-| `bun run build-components-minify` | Minified snippet components + post-process. | |
-| `bun run build-components-raw-minify` | Minified raw components. | |
+| `bun run build` | Builds components (both outputs), then templates. | Default full compile of all your source files. |
+| `bun run build-templates` | Builds templates only - outputs to `dist/templates/`. | |
+| `bun run build-components` | Builds sripped components only - outputs to `dist/components/` (stripped HTML snippets). | |
+| `bun run build-components-raw` | Builds raw components only - outputs to `dist/components-raw/` (raw HTML based off of `.mjml` source). | |
+| `bun run build-watch` | Runs component, component-raw, and template watchers together. | Useful for active browser preview - dist rebuilds when source files update (remember to refresh your browser). |
+| `bun run build-templates-watch` | Runs template watcher only. | |
+| `bun run build-components-watch` | Runs component watcher only. | |
+| `bun run build-components-raw-watch` | Runs component-raw watcher only. | |
+| `bun run build-minify` | Same as `build`, but outputs minified HTML. Outputs to same files' locations (overwrites). | Smaller files for production use for example. |
+| `bun run build-templates-minify` | Same as `build-templates`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
+| `bun run build-components-minify` | Same as `build-components`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
+| `bun run build-components-raw-minify` | Same as `build-components-raw`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
