@@ -203,3 +203,11 @@ Run these from the project root with Bun.
 | `bun run build-templates-minify` | Same as `build-templates`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
 | `bun run build-components-minify` | Same as `build-components`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
 | `bun run build-components-raw-minify` | Same as `build-components-raw`, but outputs minified HTML. Outputs to the same files' locations (overwrites). | |
+
+## Other info
+
+Remember - you don't have to use the whole suggested _styles / blocks / components / templates workflow. If you just need a quick starter project and need to style a single e-mail by today - just do it all in a single template file. If you ever need to repeat your patterns, make more e-mails or have shorter files - then use the workflow this project is built around and split your stuff into smaller, more organised bits.
+
+<br>
+
+This starter has CLAUDE.md and .cursorrules files preconfigured.
