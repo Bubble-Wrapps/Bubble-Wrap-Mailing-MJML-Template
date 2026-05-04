@@ -1,19 +1,37 @@
 This project uses MJML (Mailjet Markup Language) to build responsive HTML emails.
 
-Key rules:
+## Key rules
 
 - Always use https://documentation.mjml.io/#mjml-guide for guidelines on how to do stuff. Always inform if documentation was used and what parts were read.
-- All layouts should prioritise using MJML components over raw HTML. If something can't be done with MJML components or would be messy/hard to work with - use <mj-raw> component that allows to put plain HTML in it. mj-raw is an "ending tag", which means that it can contain HTML code but it cannot contain other MJML components.
+- All layouts should prioritise using MJML components over raw HTML. If something can't be done with MJML components or would be messy/hard to work with - use <mj-raw>, which accepts plain HTML but cannot contain other MJML components.
 - Required nesting: `<mjml>` → `<mj-body>` → `<mj-section>` → `<mj-column>` → content.
-- Compiled HTML output goes to dist/ (not committed)
-- Source files live in src/templates/ and src/blocks (.mjml extension); compiled to dist/templates/ and dist/blocks.
-- The files in src/blocks/ are reusable MJML fragments and are included with <mj-include>; compiled to dist/blocks/ without allowIncludes.
-- Run `bun run build` to compile templates and blocks
-- Run `bun run build-templates` to compile only templates
-- Run `bun run build-blocks` to compile only blocks
-- Run `bun run build-watch` to watch templates and blocks
-- Run `bun run build-templates-watch` to watch only templates
-- Run `bun run build-blocks-watch` to watch only blocks
-- Run `bun run build-minify` to compile templates and blocks with minified output
-- Run `bun run build-templates-minify` to compile only templates with minified output
-- Run `bun run build-blocks-minify` to compile only blocks with minified output
+- Compiled HTML output goes to dist/ (not committed).
+
+## Source layout
+
+- `src/_styles/` — CSS files for inclusion via `<mj-include type="css">`
+- `src/blocks/` — Reusable MJML fragments (partial markup); included with `<mj-include>`
+- `src/components/` — Full MJML documents; compiled to both dist/components/ (snippets) and dist/components-raw/ (full HTML)
+- `src/templates/` — Standalone email templates; compiled to dist/templates/
+
+## Component outputs
+
+Components compile to two targets:
+
+- `dist/components/` — Post-processed snippets (body content + custom styles only); include in templates with `<mj-include path="../../dist/components/foo.html" type="html" />`
+- `dist/components-raw/` — Full unmodified HTML; used for standalone use in emails or for debugging.
+
+## Build commands
+
+- `bun run build` — Compile everything (components, components-raw, templates)
+- `bun run build-templates` — Compile templates only
+- `bun run build-components` — Compile components → dist/components/ (snippets)
+- `bun run build-components-raw` — Compile components → dist/components-raw/ (full HTML)
+- `bun run build-watch` — Watch all three in parallel
+- `bun run build-templates-watch` — Watch templates only
+- `bun run build-components-watch` — Watch components (snippet output) only
+- `bun run build-components-raw-watch` — Watch components (raw output) only
+- `bun run build-minify` — Compile everything with minified output
+- `bun run build-templates-minify` — Compile templates with minified output
+- `bun run build-components-minify` — Compile components (snippets) with minified output
+- `bun run build-components-raw-minify` — Compile components (raw) with minified output
