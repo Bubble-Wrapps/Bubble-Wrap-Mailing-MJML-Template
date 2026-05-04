@@ -15,11 +15,26 @@
         <mj-button background-color="#F45E43" href="https://mjml.io">
           Learn More
         </mj-button>
-        <!-- <mj-include path="../../dist/components/footer.html" type="html" /> -->
       </mj-column>
     </mj-section>
+    <!-- NOTE: The components are built with a post-processing step that strips away their html document shell,
+    but leaves the custom styles, making them a ready to use html snippets, that you can import like here.
+    That way, the snippets are sealed - your global styles in the .mjml component document won't affect
+    this template. 
+    You just need to rebuild every time you want to see your .html includes updated. 
+    Component without this post-processing are in the dist/raw-components folder, but those are not suitable for
+    mj-includes. -->
     <mj-wrapper background-color="#ebebeb" padding="10px 13px">
-      <mj-include path="../components/footer.mjml">
+      <mj-include path="../../dist/components/footer.html" type="html" />
     </mj-wrapper>
+    <!-- Whereas including the .mjml component directly (as seen below) will work similarly, but your global styles from
+    the included file will be included as well - potentially influencing your template in a way that is not
+    directly seen, so the suggested workflow for including components is post-processed .html includes.
+    
+    Suggested use for .mjml includes is including styles written in MJML syntax. -->
+    <!-- <mj-wrapper background-color="#ebebeb" padding="10px 13px">
+      <mj-include path="../components/footer.mjml" />
+    </mj-wrapper> -->
+    <!-- NOTE end -->
   </mj-body>
 </mjml>

@@ -18,26 +18,15 @@
         align="left"
       />
     </mj-attributes>
-    <mj-include path="../_styles/use-full-width.css" type="css" inline="inline">
+    <mj-include
+      path="../_styles/use-full-width.css"
+      type="css"
+      css-inline="inline"
+    />
   </mj-head>
   <mj-body>
     <mj-section css-class="use-full-width">
-      <mj-column>
-        <mj-text> Regards, </mj-text>
-        <mj-text> Marcin Dwornikowski </mj-text>
-        <mj-text>
-          <a
-            href="https://bubblewrap.dev"
-            style="
-              color: rgb(218, 72, 223);
-              font-weight: 600;
-              text-decoration: none;
-            "
-          >
-            Bubble Wrap
-          </a>
-        </mj-text>
-      </mj-column>
+      <mj-include path="../blocks/footer-column.mjml" />
     </mj-section>
   </mj-body>
 </mjml>
