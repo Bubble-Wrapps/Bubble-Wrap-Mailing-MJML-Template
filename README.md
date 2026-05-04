@@ -206,7 +206,7 @@ Run these from the project root with Bun.
 
 ## Other info
 
-Remember - you don't have to use the whole suggested _styles / blocks / components / templates workflow. If you just need a quick starter project and need to style a single e-mail by today - just do it all in a single template file. If you ever need to repeat your patterns, make more e-mails or have shorter files - then use the workflow this project is built around and split your stuff into smaller, more organised bits.
+Remember - you don't have to use the whole suggested _styles / blocks / components / templates workflow right away. If you just need a quick starter project and need to style a single e-mail by today - just do it all in a single template file. If you ever need to repeat your patterns, make more e-mails or have shorter files - then use the workflow this project is built around and split your stuff into smaller, more organised bits.
 
 <br>
 
