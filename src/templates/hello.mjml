@@ -22,7 +22,7 @@
     That way, the snippets are sealed - your global styles in the .mjml component document won't affect
     this template. 
     You just need to rebuild every time you want to see your .html includes updated. 
-    Component without this post-processing are in the dist/raw-components folder, but those are not suitable for
+    Components without this post-processing are in the dist/components-raw folder, but those are not suitable for
     mj-includes. -->
     <mj-wrapper background-color="#ebebeb" padding="10px 13px">
       <mj-include path="../../dist/components/footer.html" type="html" />

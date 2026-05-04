@@ -4,15 +4,18 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun run build-components && bun run build-templates",
+    "build": "bun run build-components && bun run build-components-raw && bun run build-templates",
     "build-templates": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\",\"../components\",\"../../dist/components\"]'",
     "build-components": "mkdir -p dist/components && mjml src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]' && node -e \"const fs=require('fs');[...fs.readdirSync('dist/components')].filter(f=>f.endsWith('.html')).forEach(f=>{const h=fs.readFileSync('dist/components/'+f,'utf8');const customStyles=[];const re=/<style[^>]*>([\\s\\S]*?)<\\/style>/gi;let m;while((m=re.exec(h))!==null){if(!/#outlook|\\.mj-outlook|@media only screen|\\.moz-text-html/.test(m[1])){customStyles.push(m[0]);}}const body=h.match(/<body[^>]*>([\\s\\S]*)<\\/body>/i);if(body)fs.writeFileSync('dist/components/'+f,(customStyles.length?customStyles.join('\\n')+'\\n':'')+body[1]);})\"",
-    "build-watch": "bun run build-components-watch & bun run build-templates-watch",
+    "build-components-raw": "mkdir -p dist/components-raw && mjml src/components/*.mjml -o dist/components-raw/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]'",
+    "build-watch": "bun run build-components-watch & bun run build-components-raw-watch & bun run build-templates-watch",
     "build-templates-watch": "node scripts/build-templates-watch.js",
     "build-components-watch": "node scripts/build-components-watch.js",
-    "build-minify": "bun run build-components-minify && bun run build-templates-minify",
+    "build-components-raw-watch": "node scripts/build-components-raw-watch.js",
+    "build-minify": "bun run build-components-minify && bun run build-components-raw-minify && bun run build-templates-minify",
     "build-templates-minify": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\",\"../components\",\"../../dist/components\"]' --config.minify true",
-    "build-components-minify": "mkdir -p dist/components && mjml src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]' --config.minify true && node -e \"const fs=require('fs');[...fs.readdirSync('dist/components')].filter(f=>f.endsWith('.html')).forEach(f=>{const h=fs.readFileSync('dist/components/'+f,'utf8');const customStyles=[];const re=/<style[^>]*>([\\s\\S]*?)<\\/style>/gi;let m;while((m=re.exec(h))!==null){if(!/#outlook|\\.mj-outlook|@media only screen|\\.moz-text-html/.test(m[1])){customStyles.push(m[0]);}}const body=h.match(/<body[^>]*>([\\s\\S]*)<\\/body>/i);if(body)fs.writeFileSync('dist/components/'+f,(customStyles.length?customStyles.join('\\n')+'\\n':'')+body[1]);})\""
+    "build-components-minify": "mkdir -p dist/components && mjml src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]' --config.minify true && node -e \"const fs=require('fs');[...fs.readdirSync('dist/components')].filter(f=>f.endsWith('.html')).forEach(f=>{const h=fs.readFileSync('dist/components/'+f,'utf8');const customStyles=[];const re=/<style[^>]*>([\\s\\S]*?)<\\/style>/gi;let m;while((m=re.exec(h))!==null){if(!/#outlook|\\.mj-outlook|@media only screen|\\.moz-text-html/.test(m[1])){customStyles.push(m[0]);}}const body=h.match(/<body[^>]*>([\\s\\S]*)<\\/body>/i);if(body)fs.writeFileSync('dist/components/'+f,(customStyles.length?customStyles.join('\\n')+'\\n':'')+body[1]);})\"",
+    "build-components-raw-minify": "mkdir -p dist/components-raw && mjml src/components/*.mjml -o dist/components-raw/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]' --config.minify true"
   },
   "devDependencies": {
     "mjml-cli": "^5.1.0"
