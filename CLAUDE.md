@@ -28,7 +28,7 @@ bun run build-blocks-minify      # Compile blocks with minified output
 
 ## MJML Rules
 
-- Always use https://documentation.mjml.io/#mjml-guide for guidelines on how to do stuff.
+- Always use https://documentation.mjml.io/#mjml-guide for guidelines on how to do stuff. Always inform if documentation was used and what parts were read.
 - All layouts should prioritise using MJML components over raw HTML. If something can't be done with MJML components or would be messy/hard to work with - use <mj-raw> component that allows to put plain HTML in it. mj-raw is an "ending tag", which means that it can contain HTML code but it cannot contain other MJML components.
 - Required nesting: `<mjml>` → `<mj-body>` → `<mj-section>` → `<mj-column>` → content.
 - Compiled HTML output goes to dist/ (not committed)

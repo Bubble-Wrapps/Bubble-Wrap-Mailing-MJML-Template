@@ -15,7 +15,11 @@
         <mj-button background-color="#F45E43" href="https://mjml.io">
           Learn More
         </mj-button>
+        <!-- <mj-include path="../../dist/components/footer.html" type="html" /> -->
       </mj-column>
     </mj-section>
+    <mj-wrapper background-color="#ebebeb" padding="10px 13px">
+      <mj-include path="../components/footer.mjml">
+    </mj-wrapper>
   </mj-body>
 </mjml>

@@ -1,0 +1,43 @@
+<mjml>
+  <!-- NOTE: Using any attributes on the mjml component will break using it with the mj-include component.
+  MJML v5's parser checks for the exact string <mjml> to detect a complete document.
+  With lang="en", it doesn't match, so the whole file gets wrapped in an extra <mjml><mj-body> 
+  silently producing nothing. Removing the lang attribute fixes it.
+  <mjml lang="en">
+  -->
+  <!-- TODO: Add lang attribute once this issue is fixed. -->
+  <mj-head>
+    <mj-attributes>
+      <mj-all margin="0" padding="0" font-family="Helvetica" />
+      <mj-text
+        font-size="12px"
+        font-weight="400"
+        font-style="normal"
+        line-height="1.2"
+        color="inherit"
+        align="left"
+      />
+    </mj-attributes>
+    <mj-include path="../_styles/use-full-width.css" type="css" inline="inline">
+  </mj-head>
+  <mj-body>
+    <mj-section css-class="use-full-width">
+      <mj-column>
+        <mj-text> Regards, </mj-text>
+        <mj-text> Marcin Dwornikowski </mj-text>
+        <mj-text>
+          <a
+            href="https://bubblewrap.dev"
+            style="
+              color: rgb(218, 72, 223);
+              font-weight: 600;
+              text-decoration: none;
+            "
+          >
+            Bubble Wrap
+          </a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

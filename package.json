@@ -4,15 +4,15 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "bun run build-templates && bun run build-blocks",
-    "build-templates": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true",
-    "build-blocks": "mkdir -p dist/blocks && mjml src/blocks/*.mjml -o dist/blocks/",
-    "build-watch": "bun run build-templates-watch & bun run build-blocks-watch",
-    "build-templates-watch": "mkdir -p dist/templates && mjml -w src/templates/*.mjml -o dist/templates/ --config.allowIncludes true",
-    "build-blocks-watch": "mkdir -p dist/blocks && mjml -w src/blocks/*.mjml -o dist/blocks/",
-    "build-minify": "bun run build-templates-minify && bun run build-blocks-minify",
-    "build-templates-minify": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.minify true",
-    "build-blocks-minify": "mkdir -p dist/blocks && mjml src/blocks/*.mjml -o dist/blocks/ --config.minify true"
+    "build": "bun run build-components && bun run build-templates",
+    "build-templates": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\",\"../components\"]'",
+    "build-components": "mkdir -p dist/components && mjml src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]'",
+    "build-watch": "bun run build-components-watch && bun run build-templates-watch",
+    "build-templates-watch": "mkdir -p dist/templates && mjml -w src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\",\"../components\"]'",
+    "build-components-watch": "mkdir -p dist/components && mjml -w src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]'",
+    "build-minify": "bun run build-components-minify && bun run build-templates-minify",
+    "build-templates-minify": "mkdir -p dist/templates && mjml src/templates/*.mjml -o dist/templates/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\",\"../components\"]' --config.minify true",
+    "build-components-minify": "mkdir -p dist/components && mjml src/components/*.mjml -o dist/components/ --config.allowIncludes true --config.includePath '[\"../_styles\",\"../blocks\"]' --config.minify true"
   },
   "devDependencies": {
     "mjml-cli": "^5.1.0"
