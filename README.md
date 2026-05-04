@@ -1,5 +1,22 @@
 # Bubble Wrap Mailing Using MJML
 
+The MJML (Mailjet Markup Language) project starter.
+
+## Usage
+
+This template is free to use in personal and commercial projects.
+
+However, it is not intended to be:
+- Resold as a template
+- Repackaged as a competing developer product
+- Distributed under another name as a template
+
+If you’re unsure whether your use case is okay, feel free to ask or open an issue.
+
+<br>
+
+# Setup
+
 ## Prerequisites
 
 - [asdf](https://asdf-vm.com) - asdf is a tool version manager that allows managing multiple runtime versions for different tools.
@@ -103,3 +120,23 @@ code .
 > After opening the workspace, Cursor / VS Code will prompt you to install all the recommended extensions for this workspace. You should install them, since these extensions are necessary for the development of this project.
 >
 > After opening the workspace, Cursor / VS Code will prompt you to use the Typescript version defined by this workspace. You should allow that, to make sure that you are using the same Typescript version as other people working on the project.
+
+<br>
+
+## Build and start working
+
+Run:
+<br>
+
+```console
+bun run build
+```
+> Note:
+>
+> This will compile your .mjml files into .html (and output them into the dist folder).
+>
+> This step is necessary for the Preview in the next step to work properly - as hello.mjml contains a component inclusion as compiled html through the mj-include component. (this should be easier to grasp on after you read about the Architecture below and scan through the [MJML documentation](https://documentation.mjml.io/#mjml-guide))
+
+<br>
+
+Then open hello.mjml, hit Cmd/Ctrl + Shift + P and run 'MJML: Open Preview to the Side', which should open an MJML Preview tab (though not necessarily to the Side - you can drag it there though though).
