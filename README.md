@@ -19,6 +19,7 @@ If you’re unsure whether your use case is okay, feel free to ask or open an is
 
 ## Prerequisites
 
+- [Visual Studio Code](https://code.visualstudio.com/) ot [Cursor](https://cursor.com/)
 - [asdf](https://asdf-vm.com) - asdf is a tool version manager that allows managing multiple runtime versions for different tools.
 
 <br>
@@ -148,6 +149,12 @@ Then open `src/templates/hello.mjml`, hit Cmd/Ctrl + Shift + P and run **MJML: O
 
 <br>
 
+Your Preview should look something like this:
+<img width="644" height="265" alt="Screenshot 2026-05-05 at 13 07 06" src="https://github.com/user-attachments/assets/6d25d40b-741e-41c3-a556-2bf201d4c3b0" />
+
+<br>
+
+
 # Architecture & recommended workflow
 
 ## Folders
@@ -231,6 +238,6 @@ Sometimes it's the other way around - the output `.html` looks as expected in th
 
 # Known issues
 
-- Honestly idk if `.mjmlconfig` is set up properly or if it is properly utilised by MJML. In the current setup, the most important stuff is explicitly set in the build scripts in `package.json`.
+- Honestly idk if `.mjmlconfig` is set up properly or if it is properly utilised by MJML. In the current setup, the most important stuff is explicitly set in the build scripts in `package.json`, `.mjmlconfig` should provide global settings for those commands, but it seems to do nothing.
 - [MJML Official](https://open-vsx.org/extension/mjmlio/vscode-mjml) v2.3.0 breaks the mj-includes for `.mjml` files outside of the current directory with the current setup. Use v2.2.2 if your Preview is broken.
 - **MJML: Open Preview to the Side** might not open to the Side
