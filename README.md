@@ -156,26 +156,32 @@ Work files live under `src/`. Compiled HTML goes to `dist/` (`dist/` is generate
 | `src/components/` | Full MJML documents that can be used independently (each has an `<mjml>` root), but usually are meant to be the large building material for your templates. Built twice: HTML snippets for use in other `.mjml` files under `dist/components/` (for including using `<mj-include type="html" path="...">`) and full unstripped HTML documents under `dist/components-raw/` (for independent use or for debugging build issues). |
 | `src/templates/` | Full email templates. Built to `dist/templates/` - these are the usual “ship this HTML” outputs. |
 
+If you want to expand the folder structure and add your own folders, they need to also be added to [includePath scope](https://documentation.mjml.io/#inside-node-js) (set in `package.json` build scripts), if the containing files are planned to be used with mj-include.
+
 > Note:
 >
-> If you are wondering why components are build twice and the stripped version is used for HTML include in the templates as a prefference - see `src/templates/hello.mjml` and try both ways of include yourself (the regular `.mjml` include and the `.html` include) - I've added comments and a commented out `.mjml` include alternative for you to try.
+> If you are wondering why components are built twice and the stripped version is used for HTML include in the templates as a prefference - see `src/templates/hello.mjml` and try both ways of include yourself (the regular `.mjml` include and the `.html` include) - I've added comments and a commented out `.mjml` include alternative for you to try.
 
 After a build, `dist/` contains:
 
-- `dist/components/` - stripped HTML snippets for use in other `.mjml` files. Those `.html` files are stripped from the HTML shell so that they can be reused in the target HTML documents (for example in a src/templates/ .mjml file). Those snippets preserve all your custom styling and MJML's [head components](https://documentation.mjml.io/#standard-head-components), except for mj-breakpoint, mj-preview and mj-title - but those are ok to be stripped away because they are important for a full HTML file and not a HTML snippet.
-- `dist/components-raw/` - full HTML documents from MJML, good for opening in a browser or reusing a whole piece (for example a footer) as a standalone file.
-- `dist/templates/` - final template HTML ready to be copy-pasted into your mailing solution. (the simplest way to do that is: drag and drop a .html file into your browser, Cmd/Ctrl + A, Cmd/Ctrl + C and Cmd/Ctrl + V into you e-mail client, like Apple Mail; for more advanced use like SMTP or client specific info, eg. Outlook - research)
+- `dist/components/` - stripped HTML snippets for use in other `.mjml` files. Those `.html` files are stripped from the HTML shell so that they can be reused in the target HTML documents (for example in a src/templates/ `.mjml` file). Those snippets preserve all your custom styling and MJML's [head components](https://documentation.mjml.io/#standard-head-components), except for mj-breakpoint, mj-preview and mj-title - but those are ok to be stripped away because they are important for a full HTML file only.
+- `dist/components-raw/` - full HTML documents from MJML, suitable for standalone use (for example if you only need a footer for your e-mails) or for debugging, if something seems wrong with the stripped `dist/components/` output.
+- `dist/templates/` - final template HTML ready to be copy-pasted into your mailing solution. (the simplest way to do that is: drag and drop a template `.html` file into your browser, Cmd/Ctrl + A, Cmd/Ctrl + C and Cmd/Ctrl + V into you e-mail client, like Apple Mail; for more advanced use like SMTP or client specific info, eg. Outlook - research)
 
 <br>
 
 ## Preview
 
-- **In the IDE:** open an `.mjml` file, Command Palette (Cmd/Ctrl + Shift + P) - **MJML: Open Preview to the Side** (you can drag the preview tab where you like).
-- **In the browser:** open the generated `.html` files under `dist/` directly (for example `dist/templates/hello.html`).
+There are two ways of previewing your work:
+
+- **In the IDE:** open an `.mjml` file, open Command Palette (Cmd/Ctrl + Shift + P), pick **MJML: Open Preview to the Side** (you can drag the preview tab where you like).
+- **In the browser:** drag the generated `.html` file from `dist/` (for example `dist/templates/hello.html`) directly to your web browser window.
 
 > Note:
 >
-> If you rely on opening `.html` in the browser, **watch mode** (see [Build commands](#build-commands)) keeps `dist/` in sync while you edit, so you only need to refresh the browser.
+> If you rely on opening `.html` in the browser, **build watch mode** (see [Build commands](#build-commands)) keeps `dist/` in sync while you edit, so you only need to refresh the browser.
+
+The browser preview is less ergonomic but more reliable - on occasion you will see something compile properly for your MJML Preview, but will look broken in your browser. This usually means that MJML had some problems with compiling your `.mjml` into `.html` and that what you see in the browser is how your output actually is. Checkign the raw `.html` text might help with pinpointing what the issue is. MJML usually adds a comment in the raw `.html` file if it couldn't compile something (the usual cause is that it is outside the [includePath scope](https://documentation.mjml.io/#inside-node-js) (set in `package.json` build scripts)).
 
 <br>
 
