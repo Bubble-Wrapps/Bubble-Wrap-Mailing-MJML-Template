@@ -165,7 +165,7 @@ Work files live under `src/`. Compiled HTML goes to `dist/` (`dist/` is generate
 
 | Folder | Role |
 |--------|------|
-| `src/_styles/` | `.css` or `.mjml` containing styling stuff included into .mjml files with `<mj-include type="css" path="...">` or `<mj-include path="...">` respectively. |
+| `src/_styles/` | `.css` or `.mjml` containing styling stuff included into `.mjml` files with `<mj-include type="css" path="...">` or `<mj-include path="...">` respectively. |
 | `src/blocks/` | Small reusable MJML fragments (for example a column, row or other repeatable layout). Not built on their own - only included inside other `.mjml` files with `<mj-include path="...">`. |
 | `src/components/` | Full MJML documents that can be used independently (each has an `<mjml>` root), but usually are meant to be the large building material for your templates. Built twice: HTML snippets for use in other `.mjml` files under `dist/components/` (for including using `<mj-include type="html" path="...">`) and full unstripped HTML documents under `dist/components-raw/` (for independent use or for debugging build issues). |
 | `src/templates/` | Full email templates. Built to `dist/templates/` - these are the usual “ship this HTML” outputs. |
