@@ -150,7 +150,9 @@ Then open `src/templates/hello.mjml`, hit Cmd/Ctrl + Shift + P and run **MJML: O
 <br>
 
 Your Preview should look something like this:
-<img width="644" height="265" alt="Screenshot 2026-05-05 at 13 07 06" src="https://github.com/user-attachments/assets/6d25d40b-741e-41c3-a556-2bf201d4c3b0" />
+<div align="center">
+   <img width="644" height="265" alt="MJML Preview view after Setup" src="https://github.com/user-attachments/assets/6d25d40b-741e-41c3-a556-2bf201d4c3b0" />
+</div>
 
 <br>
 
@@ -228,7 +230,7 @@ Remember - you don't have to use the whole suggested _styles / blocks / componen
 
 <br>
 
-This starter has CLAUDE.md and .cursorrules files preconfigured.
+This starter has `CLAUDE.md` and `.cursorrules` files preconfigured.
 
 # Troubleshooting
 
