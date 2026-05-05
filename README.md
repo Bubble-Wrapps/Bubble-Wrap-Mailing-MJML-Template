@@ -234,7 +234,7 @@ This starter has `CLAUDE.md` and `.cursorrules` files preconfigured.
 
 # Troubleshooting
 
-On occasion you will see something compile properly for your MJML Preview, but will look broken in your browser. This usually means that MJML had some problems with compiling your `.mjml` into `.html` and that what you see in the browser is how your output actually is. Checkign the raw `.html` text might help with pinpointing what the issue is. MJML usually adds a comment in the raw `.html` file if it couldn't compile something (the usual cause is that it is outside the [includePath scope](https://documentation.mjml.io/#inside-node-js) (set explicitly in the `package.json` build scripts)
+On occasion you will see something compile properly for your MJML Preview, but will look broken in your browser. This usually means that MJML had some problems with compiling your `.mjml` into `.html` and that what you see in the browser is how your output actually is. Checkign the raw `.html` text might help with pinpointing what the issue is. MJML usually adds a comment in the raw `.html` file if it couldn't compile something (the usual cause is that it is outside the [includePath scope](https://documentation.mjml.io/#inside-node-js) (set explicitly in the `package.json` build scripts).
 
 Sometimes it's the other way around - the output `.html` looks as expected in the browser, but the MJML Preview doesn't - usually means that the [MJML Official](https://open-vsx.org/extension/mjmlio/vscode-mjml) extension has issues rendering the Preview. Recommended version is v2.2.2.
 
