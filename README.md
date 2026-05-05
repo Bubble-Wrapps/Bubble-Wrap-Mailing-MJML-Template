@@ -19,7 +19,7 @@ If you’re unsure whether your use case is okay, feel free to ask or open an is
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/) ot [Cursor](https://cursor.com/)
+- [Visual Studio Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/)
 - [asdf](https://asdf-vm.com) - asdf is a tool version manager that allows managing multiple runtime versions for different tools.
 
 <br>
