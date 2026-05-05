@@ -123,6 +123,11 @@ code .
 
 <br>
 
+## Install recommended extensions
+
+- [Prettier](https://open-vsx.org/extension/esbenp/prettier-vscode)
+- [MJML Official](https://open-vsx.org/extension/mjmlio/vscode-mjml) - v2.2.2 recommended, as v2.3.0 breaks the Preview (see [Known issues](#known-issues))
+
 ## Build and start working
 
 Run:
@@ -143,7 +148,7 @@ Then open `src/templates/hello.mjml`, hit Cmd/Ctrl + Shift + P and run **MJML: O
 
 <br>
 
-# Architecture
+# Architecture & recommended workflow
 
 ## Folders
 
@@ -181,7 +186,7 @@ There are two ways of previewing your work:
 >
 > If you rely on opening `.html` in the browser, **build watch mode** (see [Build commands](#build-commands)) keeps `dist/` in sync while you edit, so you only need to refresh the browser.
 
-The browser preview is less ergonomic but more reliable - on occasion you will see something compile properly for your MJML Preview, but will look broken in your browser. This usually means that MJML had some problems with compiling your `.mjml` into `.html` and that what you see in the browser is how your output actually is. Checkign the raw `.html` text might help with pinpointing what the issue is. MJML usually adds a comment in the raw `.html` file if it couldn't compile something (the usual cause is that it is outside the [includePath scope](https://documentation.mjml.io/#inside-node-js) (set in `package.json` build scripts)).
+The browser preview is less ergonomic but more reliable - what you see in the browser is your true output. Use MJML Preview for development, but check your `.html` files in the browser at least after a notable part of the work is done - for example when you finish a component.
 
 <br>
 
@@ -217,3 +222,15 @@ Remember - you don't have to use the whole suggested _styles / blocks / componen
 <br>
 
 This starter has CLAUDE.md and .cursorrules files preconfigured.
+
+# Troubleshooting
+
+On occasion you will see something compile properly for your MJML Preview, but will look broken in your browser. This usually means that MJML had some problems with compiling your `.mjml` into `.html` and that what you see in the browser is how your output actually is. Checkign the raw `.html` text might help with pinpointing what the issue is. MJML usually adds a comment in the raw `.html` file if it couldn't compile something (the usual cause is that it is outside the [includePath scope](https://documentation.mjml.io/#inside-node-js) (set explicitly in the `package.json` build scripts)
+
+Sometimes it's the other way around - the output `.html` looks as expected in the browser, but the MJML Preview doesn't - usually means that the [MJML Official](https://open-vsx.org/extension/mjmlio/vscode-mjml) extension has issues rendering the Preview. Recommended version is v2.2.2.
+
+# Known issues
+
+- Honestly idk if `.mjmlconfig` is set up properly or if it is properly utilised by MJML. In the current setup, the most important stuff is explicitly set in the build scripts in `package.json`.
+- [MJML Official](https://open-vsx.org/extension/mjmlio/vscode-mjml) v2.3.0 breaks the mj-includes for `.mjml` files outside of the current directory with the current setup. Use v2.2.2 if your Preview is broken.
+- **MJML: Open Preview to the Side** might not open to the Side
