@@ -1,0 +1,6 @@
+/* NOTE: Overwrites the align="center" om the table, and gives it width="auto" */
+.section-align-left table {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  width: auto !important;
+}

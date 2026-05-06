@@ -19,14 +19,19 @@
       />
     </mj-attributes>
     <mj-include
-      path="../_styles/use-full-width.css"
+      path="../_styles/width-full.css"
+      type="css"
+      css-inline="inline"
+    />
+    <mj-include
+      path="../_styles/section-align-left.css"
       type="css"
       css-inline="inline"
     />
   </mj-head>
   <mj-body>
-    <mj-section css-class="use-full-width">
-      <mj-column width="100%">
+    <mj-section css-class="width-full section-align-left">
+      <mj-column>
         <mj-include path="../blocks/footer-signature.mjml" />
       </mj-column>
     </mj-section>

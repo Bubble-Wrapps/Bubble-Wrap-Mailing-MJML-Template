@@ -1,8 +1,8 @@
-/* NOTE: When using this class, it's worth looking into the output .html file
+/* NOTE: When using this class on a section, it's worth looking into the output .html file
 (particularly ctrl/cmnd + F for '600' as there will be some conditional comments, primarily for
 Microsoft Outlook / Internet Explorer rendering engines - that will be conditionally enabled in those).
 For max consistency, those should be manually edited as well - swapping width values from '600px' to '100%'. */
-.use-full-width {
+.width-full {
   width: 100%;
   max-width: 100% !important;
 }
